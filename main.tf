@@ -26,3 +26,13 @@ variable "bucket_name_RISHIT" {
 output "bucket_arn_RISHIT" {
   value = module.s3_bucket_RISHIT.bucket_arn
 }
+module "s3_bucket" {
+  source = "./modules/s3_bucket"
+
+  bucket_name = var.bucket_name
+  region      = var.region
+}
+
+output "bucket_arn" {
+  value = module.s3_bucket.bucket_arn
+}
