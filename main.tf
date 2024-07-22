@@ -36,3 +36,13 @@ module "s3_bucket" {
 output "bucket_arn" {
   value = module.s3_bucket.bucket_arn
 }
+provider "aws" {
+  region = var.region
+}
+
+module "s3_bucket" {
+  source = "./modules/s3_bucket"
+
+  bucket_name = var.bucket_name
+  tags = var.tags
+}
